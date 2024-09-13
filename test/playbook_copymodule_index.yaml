@@ -11,7 +11,11 @@
       service:
         name: httpd
         state: started
-
-
-
-        # ansible-playbook first-playbook.yaml      to execute this yaml file in target nodes
+    - name: copying the files
+      copy:
+        src: index.html
+        dest: /var/www/html/index.html
+    - name: restart server
+      service:
+        name: httpd
+        state: restarted
