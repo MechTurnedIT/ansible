@@ -1,18 +1,19 @@
+
 ---
 - name: install mariadb
-  dnf:
-    name: mariadb105-server
+  yum:
+    name: mariadb105
     state: latest
 - name: install mariadb server
-  yum: 
-    name: mariadb-server
+  yum:
+    name: mariadb105-server
     state: latest
 - name: install php_mysql
   yum:
-    name: php-mysql
+    name: php-mysqlnd
     state: latest
 - name: start mariadb
   service:
     name: mariadb
     state: started
-
+    
